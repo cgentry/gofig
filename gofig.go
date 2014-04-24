@@ -174,9 +174,9 @@ func configFromReader(reader io.Reader, cacheName string) (*Configuration, error
 
 				}
 			} else {
-				parts := strings.Split(line, "=")
+				parts := strings.SplitN(line, "=" , 2)
 				if len(parts) != 2 {
-					return nil, errors.New("Invalid option in line: " + line)
+					return nil, errors.New("Invalid key/value pair in line: " + line)
 				}
 				config.SetString(section, parts[0], parts[1] )
 			}

@@ -151,6 +151,16 @@ func TestIni_CheckConvertedValues( t *testing.T ){
 	}
 }
 
+func TestIsSection( t *testing.T ){
+	config,_ := NewConfigurationFromIniString( testdata_set1 )
+	if config.IsSection( "not-there"){
+		t.Errorf( "Section 'not-there' was found?")
+	}
+	if ! config.IsSection( "begin" ){
+		t.Errorf( "Section 'begin' should be there but wasn't Found")
+	}
+}
+
 func TestCascadeSections( t *testing.T){
 	config,err := NewConfigurationFromIniString( testdata_cascade )
 
