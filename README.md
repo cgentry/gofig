@@ -6,7 +6,7 @@ Simple configuration package for INI-type files for the GO language.
 PACKAGE DOCUMENTATION
 
 package gofig
-    import "github.com/CGentry/gofig"
+    import "github.com/cgentry/gofig"
 
     Package gofig implements a simple configuration parsing system. It
     allows you to load a section-based configuration into a simple map. all
