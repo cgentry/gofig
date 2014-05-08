@@ -60,6 +60,14 @@ func (config *Configuration) SetString(sectionName, optionName, value string) {
 	mm[conformOption(optionName)] = conformOption(value)
 }
 
+// IsOption return true if a section and option exists in the config
+func (config *Configuration ) IsOption( sectionName, optionName  string ) bool {
+        mm , found := config.ConfigMap[sectionName]
+	if found {
+		_ , found = mm[optionName]
+	}
+        return found
+}
 
 // GetString will search a section for a specific option. If the option
 // or section doesn't exist, an error will be returned.
